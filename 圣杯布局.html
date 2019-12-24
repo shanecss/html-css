@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圣杯布局</title>
+    <style>
+        *{ 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        .iTop,.iFooter{ 
+            height: 80px; 
+            background: #000; 
+            color: #fff; 
+        }
+        .iMain{ 
+            /*设置padding是为了摆正中间栏的位置，左右栏通过添加负的margin放到正确的位置了*/
+            padding: 0 240px 0 300px; 
+            overflow: hidden; 
+        }
+        .iMain div{ 
+            float: left; 
+            height: 562px; 
+        }
+        .iMiddle{ 
+            width: 100%; /*中间栏上去到第一行*/
+            background: brown; 
+        }
+        .iLeft{ 
+            width: 300px; 
+            margin-left: -100%; 
+            /*中间栏的位置摆正之后，左栏的位置也相应右移，通过相对定位的left恢复到正确位置*/
+            position: relative; 
+            left: -300px; 
+            background: cornflowerblue; 
+        }
+        .iRight{ 
+            width: 240px; 
+            margin-left: -240px;
+            /*中间栏的位置摆正之后，右栏的位置也相应左移，通过相对定位的right恢复到正确位置*/
+            position: relative; 
+            right: -240px; 
+            background: darkgoldenrod; 
+        }
+    </style>
+</head>
+<body>
+    <div class="iTop">头部</div>
+    <div class="iMain">
+        <div class="iMiddle">中间部分</div>
+        <div class="iLeft">左边部分</div>
+        <div class="iRight">右边部分</div>
+    </div>
+    <div class="iFooter">底部</div>
+</body>
+</html>
