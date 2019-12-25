@@ -133,7 +133,8 @@
 #### 效果图如下：
 ![垂直居中](images/20191225100720.png)
 ```
-display:inline-block；vertical-align：middle  的元素，元素是相对于同级最高的元素（撑开的区域居中的）；所以当我们把　after 伪元素设置高度：height：100% 的时候，其他同级元素就相对于父级元素居中了.
+display:inline-block；vertical-align:middle; 的元素，元素是相对于同级最高的元素（撑开的区域居中的）；
+所以当我们把　after 伪元素设置高度：height：100% 的时候，其他同级元素就相对于父级元素居中了。
 ```
 * 元素高度不定，可以用vertical-align属性，而vertical-align只有在父层为td或th时才会生效，对于其他块级元素(比如：div,p等)默认情况是不支持的。为了使用vertical-align，我们需要设置父元素display:table，子元素display:table-cell;vertical-align:middle
 ```
