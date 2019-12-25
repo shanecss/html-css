@@ -63,16 +63,77 @@
         line-height:80px;
     }
 ```
-* 行内块级元素，基本思想是使用display:inline-block;vertical-align:middle和一个伪元素让内容块处于容器中央；元素可设置如下：(这是一种很流行的方法，也适应IE7)
+* 行内块级元素实现垂直居中，基本思想是使用display:inline-block;vertical-align:middle和一个伪元素让内容块处于容器中央；元素可设置如下：(这是一种很流行的方法，也适应IE7)
 ```
     .parent::after,.child{
         display:inline-block;
         vertical-align:middle;
     }
-    .parent:after{
+    .parent::after{
         content:'';
         height:100%;
     }
+```
+#### 一个小Demo：
+```
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>行内块级元素实现垂直居中</title>
+        <style>
+            *{ margin: 0; padding: 0; }
+            .parent{
+                width: 200px;
+                height: 200px;
+                font-size: 0;
+                background: cornflowerblue;
+            }
+            .parent::after,.child{
+                display:inline-block;
+                vertical-align:middle;
+            }
+            .parent::after{
+                content:'';
+                height:100%;
+            }
+            .child{
+                width: 25%;
+            }
+            .c01{
+                height: 20px;
+                background: darkolivegreen;
+            }
+            .c02{
+                height: 50px;
+                background: indigo;
+            }
+            .c03{
+                height: 80px;
+                background: maroon;
+            }
+            .c04{
+                height: 110px;
+                background: mediumvioletred;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <span class="child c01"></span>
+            <span class="child c02"></span>
+            <span class="child c03"></span>
+            <span class="child c04"></span>
+        </div>
+    </body>
+    </html>
+```
+#### 效果图如下：
+![垂直居中](images/20191225100720.png)
+```
+display:inline-block；vertical-align：middle  的元素，元素是相对于同级最高的元素（撑开的区域居中的）；所以当我们把　after 伪元素设置高度：height：100% 的时候，其他同级元素就相对于父级元素居中了.
 ```
 * 元素高度不定，可以用vertical-align属性，而vertical-align只有在父层为td或th时才会生效，对于其他块级元素(比如：div,p等)默认情况是不支持的。为了使用vertical-align，我们需要设置父元素display:table，子元素display:table-cell;vertical-align:middle
 ```
