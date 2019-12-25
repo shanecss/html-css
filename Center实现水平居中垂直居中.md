@@ -78,14 +78,14 @@
 ```
     .parent{
         width: 300px;
-   		height: 300px;
-   		background: lightblue;
-   		display:table;
+        height: 300px;
+        background: lightblue;
+        display:table;
     }
     .child{
         display:table-cell;
-   		vertical-align: middle;
-   		background: orange;
+        vertical-align: middle;
+        background: orange;
     }
 ```
 ### **优点：**
