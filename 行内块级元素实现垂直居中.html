@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>行内块级元素实现垂直居中</title>
+    <style>
+        *{ margin: 0; padding: 0; }
+        .parent{
+            width: 200px;
+            /* 如果父级不设置高度，子元素则相对同级元素高度最高的那个垂直居中 */
+            /* 如果父级设置高度，同时在伪元素内设置height:100%，子元素则相对父级垂直居中 */
+            height: 200px;
+            /* 解决inline和inline-block元素间的空白间隙 */
+            font-size: 0;
+            background: cornflowerblue;
+        }
+        .parent::after,.child{
+            display:inline-block;
+            vertical-align:middle;
+        }
+        .parent::after{
+            content:'';
+            height:100%;
+        }
+        .child{
+            width: 25%;
+        }
+        .c01{
+            height: 20px;
+            background: darkolivegreen;
+        }
+        .c02{
+            height: 50px;
+            background: indigo;
+        }
+        .c03{
+            height: 80px;
+            background: maroon;
+        }
+        .c04{
+            height: 110px;
+            background: mediumvioletred;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <span class="child c01"></span>
+        <span class="child c02"></span>
+        <span class="child c03"></span>
+        <span class="child c04"></span>
+    </div>
+</body>
+</html>
